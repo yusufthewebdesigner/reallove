@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="mainBox">
+      <div class="heading">
+        <h3>
+          <span>Love Calculator <i class="fa-solid fa-heart"></i></span>
+        </h3>
+        <i class="fa-solid fa-moon" id="toggleIcon"></i>
+      </div>
+      <div class="form">
+        <form>
+          <label for="Name">Your Name: </label
+          ><input
+            type="text"
+            placeholder="Enter your name"
+            id="you"
+          /><br /><br />
+          <label for="Name">Partner's Name: </label
+          ><input
+            type="text"
+            placeholder="Enter your partner's name"
+            id="partner"
+          />
+          <div class="footer">
+            <h2 id="loveCount"></h2>
+            <button id="calculationButton" type="submit">Calculate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

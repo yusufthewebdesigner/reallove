@@ -1,0 +1,113 @@
+/* FontAwesome Icons */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css");
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:root {
+  --mainBoxBG: #f6f6f6;
+  --fontColor: #000;
+  --buttonColor: blue;
+  --white: #fff;
+  --inputField: #ccccff;
+}
+.darkMode {
+  --mainBoxBG: #2f3542;
+  --fontColor: #fff;
+  --buttonColor: #fff;
+  --white: #000;
+  --inputField: #fff;
+}
+#mainBox {
+  width: 100%;
+  max-width: 390px;
+  border-radius: 8px;
+  background: var(--mainBoxBG);
+  padding: 18px;
+}
+#mainBox .heading {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#mainBox .heading h3 {
+  text-align: center;
+  font-size: 24px;
+  color: var(--fontColor);
+  width: 90%;
+}
+#mainBox .heading h3 span {
+  border-bottom: 2px dashed blue;
+}
+#mainBox .heading h3 span .fa-heart {
+  color: red;
+  font-size: 23px;
+}
+#mainBox .heading i {
+  width: 10%;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+#mainBox .form form label {
+  display: block;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--fontColor);
+}
+#mainBox .form form input {
+  padding: 6px 10px;
+  outline: 0;
+  border: 0;
+  border-radius: 8px;
+  margin-top: 4px;
+  width: 100%;
+  background: var(--inputField);
+  color: black;
+  font-size: 16px;
+}
+#mainBox .form form input::placeholder {
+  color: black;
+  font-size: 16px;
+}
+#mainBox .form .footer {
+  text-align: center;
+}
+#mainBox .form .footer h2 {
+  margin-top: 30px;
+  color: var(--fontColor);
+  padding: 8px 10px;
+  height: 50px;
+  font-size: 20px;
+}
+#mainBox .form .footer button {
+  border: 0;
+  padding: 8px 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bolder;
+  cursor: pointer;
+  background: var(--buttonColor);
+  color: var(--white);
+}
+#mainBox .form .footer button:active {
+  background-color: red;
+  color: white;
+}
