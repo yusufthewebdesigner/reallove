@@ -2,6 +2,7 @@ let toggleIcon = document.getElementById("toggleIcon");
 let calcBtn = document.getElementById("calculationButton");
 let mainBox = document.getElementById("mainBox");
 let outputField = document.getElementById("loveCount");
+let loveMessage = document.getElementById("loveMsg");
 
 //
 let calculation = (e) => {
@@ -46,13 +47,29 @@ let calculation = (e) => {
   } else if (nameLength > 99) {
     outputField.innerText = `${Math.ceil(Math.random() * 10 + 80)}` + " %";
   }
-
+  //! Changing Message Color.
   if (outputField.innerText.includes("please")) {
     outputField.style.color = "red";
   } else {
     outputField.style.color = mainBox.classList.contains("darkMode")
       ? "white"
       : "black";
+  }
+  // //! Love Message Based on %.
+  if (outputField.innerText.match("%")) {
+    let loveValue = +outputField.innerText.replace(/[^\d]/g, "");
+    partnerInUpper =
+      partnerName.charAt(0).toUpperCase() + partnerName.slice(1).toLowerCase();
+
+    if (loveValue < 50) {
+      loveMessage.innerText = `${partnerInUpper} really enjoys spending time with you, you're becoming someone special to your partner.`;
+    } else if (loveValue < 70) {
+      loveMessage.innerText = `You’ve taken up a big place in ${partnerInUpper}'s heart, and ${partnerInUpper} feels so lucky to have you.`;
+    } else if (loveValue < 80) {
+      loveMessage.innerText = `Every day with you makes ${partnerInUpper} feel more deeply connected and in love!`;
+    } else if (loveValue <= 100) {
+      loveMessage.innerText = `Your souls were written in the stars long before you met. ${partnerInUpper} needs you forever, and getting your love makes ${partnerInUpper}'s destiny fullfilled!`;
+    }
   }
 };
 
@@ -64,7 +81,7 @@ calcBtn.addEventListener("keydown", () => {
 
 toggleIcon.onclick = function () {
   mainBox.classList.toggle("darkMode");
-
+  //! Changing Toogle Icon & Its Color.
   if (toggleIcon.classList.value.match("moon")) {
     toggleIcon.classList.value = "fa-solid fa-sun";
     toggleIcon.style.color = "white";
@@ -72,6 +89,7 @@ toggleIcon.onclick = function () {
     toggleIcon.classList.value = "fa-solid fa-moon";
     toggleIcon.style.color = "black";
   }
+  //! Changing Message Color on Theme Change.
   if (outputField.innerText.includes("please")) {
     outputField.style.color = "red";
   } else {

@@ -97,6 +97,9 @@ body {
   height: 50px;
   font-size: 20px;
 }
+#mainBox .form .footer p {
+  color: var(--fontColor);
+}
 #mainBox .form .footer button {
   border: 0;
   padding: 8px 15px;
