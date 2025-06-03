@@ -34,7 +34,7 @@ body {
 }
 #mainBox {
   width: 100%;
-  max-width: 390px;
+  max-width: 420px;
   border-radius: 8px;
   background: var(--mainBoxBG);
   padding: 18px;
