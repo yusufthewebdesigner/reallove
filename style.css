@@ -53,11 +53,12 @@ body {
   width: 90%;
 }
 #mainBox .heading h3 span {
-  border-bottom: 2px dashed blue;
+  border-bottom: 2px dashed cyan;
 }
 #mainBox .heading h3 span .fa-heart {
   color: red;
-  font-size: 23px;
+  font-size: 17px;
+  margin: 0 -5px;
 }
 #mainBox .heading i {
   width: 10%;
