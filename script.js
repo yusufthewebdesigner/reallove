@@ -122,14 +122,14 @@ shareBtn.addEventListener("click", async () => {
     );
     const file = new File([blob], "screenshot.png", { type: "image/png" });
 
-    // const shareData = {
-    //   files: [file],
-    //   title: "Screenshot",
-    //   text: "Check out this screenshot!",
-    // };
+    const shareData = {
+      files: [file],
+      title: "Screenshot",
+      text: "Check out this screenshot!",
+    };
 
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      // await navigator.share(shareData);
+      await navigator.share(shareData);
       console.log("Screenshot shared successfully");
     } else {
       alert("Sharing files is not supported on this browser.");
