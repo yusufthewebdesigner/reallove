@@ -21,7 +21,7 @@ body {
 :root {
   --mainBoxBG: #f6f6f6;
   --fontColor: #000;
-  --buttonColor: blue;
+  --buttonColor: rgba(0, 0, 255, 0.781);
   --white: #fff;
   --inputField: #ccccff;
 }
@@ -37,7 +37,7 @@ body {
   max-width: 420px;
   border-radius: 8px;
   background: var(--mainBoxBG);
-  padding: 18px;
+  padding: 16px;
 }
 #mainBox .heading {
   text-align: center;
@@ -58,14 +58,16 @@ body {
 #mainBox .heading h3 span .fa-heart {
   color: red;
   font-size: 17px;
-  margin: 0 -5px;
+  margin: 0 1px;
 }
-#mainBox .heading i {
+#mainBox .heading #toggleIcon {
   width: 10%;
   font-size: 25px;
   cursor: pointer;
 }
-
+#captureArea {
+  padding: 4px;
+}
 #mainBox .form form label {
   display: block;
   font-size: 20px;
@@ -77,7 +79,6 @@ body {
   outline: 0;
   border: 0;
   border-radius: 8px;
-  margin-top: 4px;
   width: 100%;
   background: var(--inputField);
   color: black;
@@ -87,29 +88,44 @@ body {
   color: black;
   font-size: 16px;
 }
-#mainBox .form .footer {
-  text-align: center;
-}
-#mainBox .form .footer h2 {
-  margin-top: 30px;
+
+#mainBox .form h2 {
   color: var(--fontColor);
   padding: 8px 10px;
-  height: 50px;
-  font-size: 20px;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 5px;
 }
-#mainBox .form .footer p {
+#mainBox .form p {
+  color: var(--fontColor);
+  text-align: justify;
+}
+#mainBox .form p::selection {
+  background: yellow;
+}
+#mainBox .form .footer .action {
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px 10px;
+  /* display: none; */
+}
+#mainBox .form .footer .action button {
+  background-color: rgba(0, 255, 255, 0.527);
+  font-size: 16px;
+  font-weight: normal;
   color: var(--fontColor);
 }
 #mainBox .form .footer button {
+  display: block;
+  margin: 10px auto 0;
   border: 0;
-  padding: 8px 15px;
-  margin-top: 10px;
   border-radius: 8px;
+  padding: 8px 15px;
+  background: var(--buttonColor);
   font-size: 16px;
   font-weight: bolder;
-  cursor: pointer;
-  background: var(--buttonColor);
   color: var(--white);
+  cursor: pointer;
 }
 #mainBox .form .footer button:active {
   background-color: red;

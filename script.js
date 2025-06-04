@@ -3,10 +3,13 @@ let calcBtn = document.getElementById("calculationButton");
 let mainBox = document.getElementById("mainBox");
 let outputField = document.getElementById("loveCount");
 let loveMessage = document.getElementById("loveMsg");
+let actionBtn = document.querySelector(".action");
 
 //
 let calculation = (e) => {
   e.preventDefault();
+  actionBtn.style.display = "flex";
+
   let yourName = document
     .getElementById("you")
     .value.toLowerCase()
@@ -98,3 +101,40 @@ toggleIcon.onclick = function () {
       : "black";
   }
 };
+//! Copy Feature.
+let copyBtn = document.getElementById("copy");
+copyBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  navigator.clipboard.writeText(loveMessage.innerText);
+});
+//! Share Feature.
+let shareBtn = document.getElementById("share");
+let captureArea = document.getElementById("captureArea");
+
+shareBtn.addEventListener("click", async () => {
+  try {
+    const element = document.getElementById("captureArea");
+
+    // Take screenshot
+    const canvas = await html2canvas(element);
+    const blob = await new Promise((resolve) =>
+      canvas.toBlob(resolve, "image/png")
+    );
+    const file = new File([blob], "screenshot.png", { type: "image/png" });
+
+    // const shareData = {
+    //   files: [file],
+    //   title: "Screenshot",
+    //   text: "Check out this screenshot!",
+    // };
+
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      // await navigator.share(shareData);
+      console.log("Screenshot shared successfully");
+    } else {
+      alert("Sharing files is not supported on this browser.");
+    }
+  } catch (err) {
+    console.error("Error sharing:", err);
+  }
+});

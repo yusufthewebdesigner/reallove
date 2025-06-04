@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Love Calculator</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- Include html2canvas from CDN to take SS -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   </head>
   <body>
     <div id="mainBox">
@@ -16,21 +18,33 @@
       </div>
       <div class="form">
         <form>
-          <label for="Name">Your Name: </label
-          ><input
-            type="text"
-            placeholder="Enter your name"
-            id="you"
-          /><br /><br />
-          <label for="Name">Partner's Name: </label
-          ><input
-            type="text"
-            placeholder="Enter your partner's name"
-            id="partner"
-          />
-          <div class="footer">
+          <!--! Element Start -->
+          <div id="captureArea">
+            <label for="Name">Your Name: </label
+            ><input
+              type="text"
+              placeholder="Enter your name"
+              id="you"
+              value="Yusuf"
+            /><br /><br />
+            <label for="Name">Partner's Name: </label
+            ><input
+              type="text"
+              placeholder="Enter your partner's name"
+              id="partner"
+              value="Eva"
+            />
             <h2 id="loveCount"></h2>
             <p id="loveMsg"></p>
+          </div>
+          <!--! Element End -->
+          <div class="footer">
+            <div class="action">
+              <button id="copy"><i class="fa-solid fa-copy"></i> Copy</button>
+              <button id="share" onclick="event.preventDefault();">
+                <i class="fa-solid fa-share"></i> Share
+              </button>
+            </div>
             <button id="calculationButton" type="submit">Calculate</button>
           </div>
         </form>
