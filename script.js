@@ -124,8 +124,8 @@ shareBtn.addEventListener("click", async () => {
 
     const shareData = {
       files: [file],
-      title: "Screenshot",
-      text: "Check out this screenshot!",
+      // title: "Screenshot",
+      // text: "Check out this screenshot!",
     };
 
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
