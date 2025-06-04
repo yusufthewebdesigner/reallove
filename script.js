@@ -114,6 +114,8 @@ let captureArea = document.getElementById("captureArea");
 shareBtn.addEventListener("click", async () => {
   try {
     const element = document.getElementById("captureArea");
+    element.style.backgroundColor = "#2f3542";
+    element.style.color = "#fff";
 
     // Take screenshot
     const canvas = await html2canvas(element);
