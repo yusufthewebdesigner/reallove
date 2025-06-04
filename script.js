@@ -114,8 +114,6 @@ let captureArea = document.getElementById("captureArea");
 shareBtn.addEventListener("click", async () => {
   try {
     const element = document.getElementById("captureArea");
-    element.style.backgroundColor = "#2f3542";
-    element.style.color = "#fff";
 
     // Take screenshot
     const canvas = await html2canvas(element);
@@ -132,7 +130,7 @@ shareBtn.addEventListener("click", async () => {
 
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
       await navigator.share(shareData);
-      console.log("Screenshot shared successfully");
+      // console.log("Screenshot shared successfully");
     } else {
       alert("Sharing files is not supported on this browser.");
     }
