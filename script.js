@@ -105,13 +105,33 @@ toggleIcon.onclick = function () {
 let copyBtn = document.getElementById("copy");
 copyBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  copyBtn.innerHTML = `<i class="fa-solid fa-circle-check"></i> Copied`;
+
   navigator.clipboard.writeText(loveMessage.innerText);
+  //! Copy Sound.
+  const sound = new Howl({
+    src: ["Copy Sound.m4a"],
+    volume: 0.8,
+  });
+  sound.play();
+
+  setTimeout(() => {
+    copyBtn.innerHTML = `<i class="fa-solid fa-copy"></i> Copy`;
+  }, 500);
 });
 //! Share Feature.
 let shareBtn = document.getElementById("share");
 let captureArea = document.getElementById("captureArea");
 
 shareBtn.addEventListener("click", async () => {
+  //! Playing Captureing Sound.
+  const sound = new Howl({
+    src: ["Screen Capture Sound.mp3"],
+    volume: 0.8,
+  });
+  sound.play();
+
+  //! Sharing SS.
   try {
     const element = document.getElementById("captureArea");
 
