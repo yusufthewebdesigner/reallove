@@ -139,8 +139,12 @@ shareBtn.addEventListener("click", async () => {
     const originalBackground = element.style.backgroundColor;
     const originalColor = element.style.color;
     // Apply black background and white text
-    element.style.backgroundColor = "black";
-    element.style.color = "white";
+    element.style.backgroundColor = mainBox.classList.contains("darkMode")
+      ? "black"
+      : "white";
+    element.style.color = mainBox.classList.contains("darkMode")
+      ? "white"
+      : "black";
 
     // Take screenshot
     const canvas = await html2canvas(element, {
