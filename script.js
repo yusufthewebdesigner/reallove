@@ -140,7 +140,7 @@ shareBtn.addEventListener("click", async () => {
     const originalBackground = element.style.backgroundColor;
     const originalColor = element.style.color;
     // Apply temporary styles
-    element.style.backgroundColor = isDark ? "black" : "white";
+    element.style.backgroundColor = isDark ? "#2f3542" : "white";
     element.style.color = isDark ? "white" : "black";
     //! Take screenshot
     const canvas = await html2canvas(element, {
