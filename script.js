@@ -135,24 +135,28 @@ shareBtn.addEventListener("click", async () => {
   try {
     const element = document.getElementById("captureArea");
 
-    // Save original styles
-    const originalBackground = element.style.backgroundColor;
-    const originalColor = element.style.color;
-    // Apply black background and white text
-    element.style.backgroundColor = mainBox.classList.contains("darkMode")
-      ? "black"
-      : "white";
-    element.style.color = mainBox.classList.contains("darkMode")
-      ? "white"
-      : "black";
+    // // Save original styles
+    // const originalBackground = element.style.backgroundColor;
+    // const originalColor = element.style.color;
+    // // Apply black background and white text
+    // element.style.backgroundColor = mainBox.classList.contains("darkMode")
+    //   ? "black"
+    //   : "white";
+    // element.style.color = mainBox.classList.contains("darkMode")
+    //   ? "white"
+    //   : "black";
 
     // Take screenshot
     const canvas = await html2canvas(element, {
       scale: 3, // Improve resolution
     });
 
-    element.style.backgroundColor = originalBackground;
-    element.style.color = originalColor;
+    element.style.backgroundColor = mainBox.classList.contains("darkMode")
+      ? "black"
+      : "white";
+    element.style.color = mainBox.classList.contains("darkMode")
+      ? "white"
+      : "black";
 
     const blob = await new Promise((resolve) =>
       canvas.toBlob(resolve, "image/png")
