@@ -131,32 +131,24 @@ shareBtn.addEventListener("click", async () => {
   });
   sound.play();
 
-  //! Sharing SS.
+  //! Takimg & Sharing SS.
   try {
     const element = document.getElementById("captureArea");
+    const isDark = mainBox.classList.contains("darkMode");
 
-    // // Save original styles
-    // const originalBackground = element.style.backgroundColor;
-    // const originalColor = element.style.color;
-    // // Apply black background and white text
-    // element.style.backgroundColor = mainBox.classList.contains("darkMode")
-    //   ? "black"
-    //   : "white";
-    // element.style.color = mainBox.classList.contains("darkMode")
-    //   ? "white"
-    //   : "black";
-
-    // Take screenshot
+    // Save original styles
+    const originalBackground = element.style.backgroundColor;
+    const originalColor = element.style.color;
+    // Apply temporary styles
+    element.style.backgroundColor = isDark ? "black" : "white";
+    element.style.color = isDark ? "white" : "black";
+    //! Take screenshot
     const canvas = await html2canvas(element, {
       scale: 3, // Improve resolution
     });
-
-    element.style.backgroundColor = mainBox.classList.contains("darkMode")
-      ? "black"
-      : "white";
-    element.style.color = mainBox.classList.contains("darkMode")
-      ? "white"
-      : "black";
+    // Restore original styles
+    element.style.backgroundColor = originalBackground;
+    element.style.color = originalColor;
 
     const blob = await new Promise((resolve) =>
       canvas.toBlob(resolve, "image/png")
