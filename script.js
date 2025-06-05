@@ -135,6 +135,13 @@ shareBtn.addEventListener("click", async () => {
   try {
     const element = document.getElementById("captureArea");
 
+    // Save original styles
+    const originalBackground = element.style.backgroundColor;
+    const originalColor = element.style.color;
+    // Apply black background and white text
+    element.style.backgroundColor = "black";
+    element.style.color = "white";
+
     // Take screenshot
     const canvas = await html2canvas(element, {
       scale: 3, // Improve resolution
