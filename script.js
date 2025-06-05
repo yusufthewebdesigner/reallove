@@ -146,6 +146,10 @@ shareBtn.addEventListener("click", async () => {
     const canvas = await html2canvas(element, {
       scale: 3, // Improve resolution
     });
+
+    element.style.backgroundColor = originalBackground;
+    element.style.color = originalColor;
+
     const blob = await new Promise((resolve) =>
       canvas.toBlob(resolve, "image/png")
     );
