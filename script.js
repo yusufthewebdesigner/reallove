@@ -117,7 +117,7 @@ copyBtn.addEventListener("click", (e) => {
 
   setTimeout(() => {
     copyBtn.innerHTML = `<i class="fa-solid fa-copy"></i> Copy`;
-  }, 500);
+  }, 800);
 });
 //! Share Feature.
 let shareBtn = document.getElementById("share");
