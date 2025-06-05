@@ -116,7 +116,9 @@ shareBtn.addEventListener("click", async () => {
     const element = document.getElementById("captureArea");
 
     // Take screenshot
-    const canvas = await html2canvas(element);
+    const canvas = await html2canvas(element, {
+      scale: 3, // Improve resolution
+    });
     const blob = await new Promise((resolve) =>
       canvas.toBlob(resolve, "image/png")
     );
