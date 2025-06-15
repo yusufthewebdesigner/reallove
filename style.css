@@ -74,7 +74,7 @@ body {
   font-weight: 800;
   color: var(--fontColor);
 }
-#mainBox .form form input {
+#mainBox .form form input[type="text"] {
   padding: 6px 10px;
   outline: 0;
   border: 0;
@@ -83,10 +83,16 @@ body {
   background: var(--inputField);
   color: black;
   font-size: 16px;
+  margin-bottom: 5px;
 }
 #mainBox .form form input::placeholder {
   color: black;
   font-size: 16px;
+}
+#mainBox .form form .gender {
+  background: #ccccff;
+  border-radius: 8px;
+  padding: 2px 5px;
 }
 
 #mainBox .form h2 {

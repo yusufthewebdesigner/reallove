@@ -10,31 +10,18 @@ let calculation = (e) => {
   e.preventDefault();
   actionBtn.style.display = "flex";
 
-  let yourName = document
-    .getElementById("you")
-    .value.toLowerCase()
-    .replace(/\s/g, "");
-  let partnerName = document
-    .getElementById("partner")
-    .value.toLowerCase()
-    .replace(/\s/g, "");
+  let YgenderSelected = document.querySelector('input[name="YGender"]:checked');
+  let PgenderSelected = document.querySelector('input[name="PGender"]:checked');
+
+  let yourName = document.getElementById("you").value.toLowerCase().replace(/\s/g, "");
+  let partnerName = document.getElementById("partner").value.toLowerCase().replace(/\s/g, "");
   let nameLength = (yourName.length + partnerName.length) * 2;
 
-  if (yourName === "" || partnerName === "") {
-    outputField.innerText = "Fill both of the field, please!";
+  if (yourName === "" || partnerName === "" || !YgenderSelected || !PgenderSelected) {
+    outputField.innerText = "Fill all the fields up, please!";
   } else if (
     (yourName.match("yusuf") && partnerName.match("eva")) ||
     (yourName.match("eva") && partnerName.match("yusuf"))
-  ) {
-    outputField.innerText = "100 %";
-  } else if (
-    (yourName.match("sourav") && partnerName.match("muna")) ||
-    (yourName.match("muna") && partnerName.match("sourav"))
-  ) {
-    outputField.innerText = "100 %";
-  } else if (
-    (yourName.match("amjad") && partnerName.match("surjana")) ||
-    (yourName.match("surjana") && partnerName.match("amjad"))
   ) {
     outputField.innerText = "100 %";
   } else if (yourName === partnerName) {
@@ -54,24 +41,30 @@ let calculation = (e) => {
   if (outputField.innerText.includes("please")) {
     outputField.style.color = "red";
   } else {
-    outputField.style.color = mainBox.classList.contains("darkMode")
-      ? "white"
-      : "black";
+    outputField.style.color = mainBox.classList.contains("darkMode") ? "white" : "black";
   }
   // //! Love Message Based on %.
   if (outputField.innerText.match("%")) {
     let loveValue = +outputField.innerText.replace(/[^\d]/g, "");
-    partnerInUpper =
-      partnerName.charAt(0).toUpperCase() + partnerName.slice(1).toLowerCase();
+    let PartnerGender = PgenderSelected.value;
+    // This prompt capitalize each word.
+    let partner = document.getElementById("partner").value.toLowerCase().split(" ");
+    let PartnerCapital = partner.map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
 
     if (loveValue < 50) {
-      loveMessage.innerText = `${partnerInUpper} really enjoys spending time with you, you're becoming someone special to your partner.`;
+      loveMessage.innerText = `${PartnerCapital} really enjoys spending time with you, you're becoming someone special to ${
+        PartnerGender === "Male" ? "him" : "her"
+      }.`;
     } else if (loveValue < 70) {
-      loveMessage.innerText = `You’ve taken up a big place in ${partnerInUpper}'s heart, and ${partnerInUpper} feels so lucky to have you.`;
+      loveMessage.innerText = `You’ve taken up a big place in ${PartnerCapital}'s heart, and ${
+        PartnerGender === "Male" ? "he" : "she"
+      } feels so lucky to have you.`;
     } else if (loveValue < 80) {
-      loveMessage.innerText = `Every day with you makes ${partnerInUpper} feel more deeply connected and in love!`;
+      loveMessage.innerText = `Every day with you makes ${PartnerCapital} feel more deeply connected and in love!`;
     } else if (loveValue <= 100) {
-      loveMessage.innerText = `Your souls were written in the stars long before you met. ${partnerInUpper} needs you forever, and getting your love makes ${partnerInUpper}'s destiny fullfilled!`;
+      loveMessage.innerText = `Your souls were written in the stars long before you met. ${PartnerCapital} needs you forever, and getting your love makes ${
+        PartnerGender === "Male" ? "his" : "her"
+      } destiny fullfilled!`;
     }
   }
 };
@@ -96,9 +89,7 @@ toggleIcon.onclick = function () {
   if (outputField.innerText.includes("please")) {
     outputField.style.color = "red";
   } else {
-    outputField.style.color = mainBox.classList.contains("darkMode")
-      ? "white"
-      : "black";
+    outputField.style.color = mainBox.classList.contains("darkMode") ? "white" : "black";
   }
 };
 //! Copy Feature.
@@ -150,9 +141,7 @@ shareBtn.addEventListener("click", async () => {
     element.style.backgroundColor = originalBackground;
     element.style.color = originalColor;
 
-    const blob = await new Promise((resolve) =>
-      canvas.toBlob(resolve, "image/png")
-    );
+    const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
     const file = new File([blob], "screenshot.png", { type: "image/png" });
 
     const shareData = {
