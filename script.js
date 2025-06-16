@@ -115,11 +115,11 @@ let shareBtn = document.getElementById("share");
 let captureArea = document.getElementById("captureArea");
 
 shareBtn.addEventListener("click", async () => {
-  document.querySelector(".Ygender").style.display = "none";
-  document.querySelector(".Pgender").style.display = "none";
+  document.querySelector("#Ygender").style.display = "none";
+  document.querySelector("#Pgender").style.display = "none";
   setTimeout(() => {
-    document.querySelector(".Ygender").style.display = "block";
-    document.querySelector(".Pgender").style.display = "block";
+    document.querySelector("#Ygender").style.display = "block";
+    document.querySelector("#Pgender").style.display = "block";
   }, 2000);
 
   //! Playing Captureing Sound.
