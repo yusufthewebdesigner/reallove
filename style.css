@@ -90,7 +90,7 @@ body {
   font-size: 16px;
 }
 #mainBox .form form .gender {
-  background: #ccccff;
+  background: var(--inputField);
   border-radius: 8px;
   padding: 2px 5px;
 }
